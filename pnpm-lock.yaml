@@ -29,6 +29,9 @@ dependencies:
   autoprefixer:
     specifier: ^10.4.20
     version: 10.4.20(postcss@8.4.47)
+  clsx:
+    specifier: ^2.1.1
+    version: 2.1.1
   postcss:
     specifier: ^8.4.47
     version: 8.4.47
@@ -41,6 +44,9 @@ dependencies:
   react-scripts:
     specifier: 5.0.1
     version: 5.0.1(@babel/plugin-syntax-flow@7.25.7)(@babel/plugin-transform-react-jsx@7.25.7)(eslint@8.57.1)(react@18.3.1)(typescript@4.9.5)
+  tailwind-merge:
+    specifier: ^2.5.3
+    version: 2.5.3
   tailwindcss:
     specifier: ^3.4.13
     version: 3.4.13
@@ -3824,6 +3830,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+    dev: false
+
+  /clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
     dev: false
 
   /co@4.6.0:
@@ -9856,6 +9867,10 @@ packages:
 
   /symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
+    dev: false
+
+  /tailwind-merge@2.5.3:
+    resolution: {integrity: sha512-d9ZolCAIzom1nf/5p4LdD5zvjmgSxY0BGgdSvmXIoMYAiPdAW/dSpP7joCDYFY7r/HkEa2qmPtkgsu0xjQeQtw==}
     dev: false
 
   /tailwindcss@3.4.13:
