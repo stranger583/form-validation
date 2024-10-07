@@ -1,10 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { addComma } from './utils/number-utils';
 function App() {
   return (
-    <div>
+    <div className='bg-red-500 w-vw h-vh'>
     </div>
   );
 }
