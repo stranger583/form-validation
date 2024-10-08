@@ -7,9 +7,11 @@ interface Props {
     value:AgeGroupPriceType;
     index:number;
     handleRemoveList:(index:number)=>void;
+    handleUpdatedList:<K extends keyof AgeGroupPriceType>( index:number, val:AgeGroupPriceType[K] ,type:K)=>void
+
 }
 
-export default function AgeGroupPrice({value, index, handleRemoveList}:Props) {
+export default function AgeGroupPrice({value, index, handleRemoveList, handleUpdatedList}:Props) {
     const {ageGroup, price} = value;
     const isFirstItem = index !==0;
     return (
@@ -25,8 +27,8 @@ export default function AgeGroupPrice({value, index, handleRemoveList}:Props) {
                     </Button>)}
         </div>
         <div className='flex gap-4 w-full'>
-                <AgeGroupSelect ageGroup={ageGroup}/>
-                <PriceInput price={price}/>
+                <AgeGroupSelect ageGroup={ageGroup} handleUpdatedList={handleUpdatedList} index={index}/>
+                <PriceInput price={price} handleUpdatedList={handleUpdatedList} index={index}/>
         </div>
     </div>
     )

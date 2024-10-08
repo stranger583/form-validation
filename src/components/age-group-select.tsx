@@ -4,10 +4,12 @@ import { cN } from '../libs/tw-marge'
 import type { AgeGroupPriceType } from '../types';
 
 interface Props {
-    ageGroup:AgeGroupPriceType['ageGroup']
+    index:number;
+    ageGroup:AgeGroupPriceType['ageGroup'];
+    handleUpdatedList:<K extends keyof AgeGroupPriceType>( index:number, val:AgeGroupPriceType[K] ,type:K)=>void
 }
 
-function AgeGroupSelect({ageGroup}:Props) {
+function AgeGroupSelect({ageGroup,handleUpdatedList,index}:Props) {
     const [startAge, endAge] = ageGroup
   return (
     <div className='w-1/2 text-sm'>

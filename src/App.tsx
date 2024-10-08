@@ -13,7 +13,7 @@ function App() {
   const [data, setData] = useState<AgeGroupPriceType[]>([defaultItem]);
   const [error, setError] = useState();
 
-  function handleUpdatedList<K extends keyof AgeGroupPriceType>( index:number, val:AgeGroupPriceType[K] ,type:K){
+  function handleUpdatedList<K extends keyof AgeGroupPriceType>(index:number, val:AgeGroupPriceType[K] ,type:K){
     const newList = [...data];
     newList[index] = {
       ...newList[index],
@@ -39,7 +39,7 @@ function App() {
         <AgeGroupPriceList 
           data={data} 
           handleRemoveList={handleRemoveList}
-          
+          handleUpdatedList={handleUpdatedList}
         />
       <Button type='button' variant='add' className='self-start' onClick={handleAddList}>+ 新增價格區間</Button>
     </form>

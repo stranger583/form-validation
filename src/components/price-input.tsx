@@ -3,10 +3,12 @@ import { Input } from './ui/input'
 import type { AgeGroupPriceType } from '../types';
 
 interface Props {
-    price:AgeGroupPriceType['price']
+    index:number;
+    price:AgeGroupPriceType['price'];
+    handleUpdatedList:<K extends keyof AgeGroupPriceType>( index:number, val:AgeGroupPriceType[K] ,type:K)=>void;
 }
 
-function PriceInput({price}:Props) {
+function PriceInput({price,handleUpdatedList,index}:Props) {
   return (
     <div className='w-1/2 text-sm'>
         <h3 className='text-gray-400 py-2'>入住費用(每人每晚)</h3>
