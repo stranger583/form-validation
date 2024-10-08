@@ -3,18 +3,20 @@ import { cN } from '../../libs/tw-marge'
 type SelectProps = React.ComponentProps<'select'>
 type OptionProps = React.ComponentProps<'option'>
 
-export function Select({ children, className, ...props }: SelectProps) {
+function Select({ children, className, ...props }: SelectProps) {
     return (
-        <select {...props} className={cN('', className)}>
+        <select {...props} className={cN('size-full p-2 border first:rounded-l last:rounded-r border-gray-400', className)}>
             {children}
         </select>
     )
 }
 
-export function Option({ children, className, ...props }: OptionProps) {
+function Option({ children, className, ...props }: OptionProps) {
     return (
-      <option className={cN('', className)} {...props}>
+      <option className={cN('text-black', className)} {...props}>
         {children}
       </option>
     );
   }
+
+export {Select, Option}
