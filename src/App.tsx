@@ -13,6 +13,12 @@ function App() {
   const [data,setData] = useState<AgeGroupPriceType[]>([initData]);
   const [error,setError] = useState();
 
+  function updatedList(){}
+
+  function addList(){}
+
+  function removeList(){}
+
   return (
     <form className='w-vw h-dvh p-4 flex flex-col items-center max-w-screen-xl mx-auto'>
       <Button type='submit' variant='validation'>驗證</Button>
