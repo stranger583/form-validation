@@ -1,4 +1,5 @@
 import { ageGroupType } from "../types";
+
 export function getNumberIntervals(intervals: ageGroupType[]) {
   const Range = { max: 20, min: 0 };
   const overlap: ageGroupType[] = []; // 重疊
