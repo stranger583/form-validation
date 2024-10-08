@@ -1,8 +1,8 @@
-import { AgeRangeType } from "../types";
-export function getNumberIntervals(intervals: AgeRangeType[]) {
+import { ageGroupType } from "../types";
+export function getNumberIntervals(intervals: ageGroupType[]) {
   const Range = { max: 20, min: 0 };
-  const overlap: AgeRangeType[] = []; // 重疊
-  const notInclude: AgeRangeType[] = []; // 未包含
+  const overlap: ageGroupType[] = []; // 重疊
+  const notInclude: ageGroupType[] = []; // 未包含
 
   // 創建一個長度為 21 的數組，用來標記每個數字是否被包含
   const marked = new Array(Range.max - Range.min + 1).fill(0);
