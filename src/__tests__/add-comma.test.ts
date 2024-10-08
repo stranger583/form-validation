@@ -12,10 +12,4 @@ describe('addComma', () => {
       const output = '1,000,000';
       expect(addComma(input)).toBe(output);
     });
-  
-    it('should return correct formatting for negative integers', () => {
-      const input = 1000000;
-      const output = '1,000,000';
-      expect(addComma(input)).toBe(output);
-    });
   });

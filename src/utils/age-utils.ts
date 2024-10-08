@@ -1,4 +1,4 @@
-type AgeRangeType = [number, number];
+import { AgeRangeType } from "../types";
 export function getNumberIntervals(intervals: AgeRangeType[]) {
   const Range = { max: 20, min: 0 };
   const overlap: AgeRangeType[] = []; // 重疊
@@ -17,10 +17,10 @@ export function getNumberIntervals(intervals: AgeRangeType[]) {
 
   // 找出重疊和未包含的區間
   let start = 0;
-  for (let i = 0; i < marked.length; i++) {
+  for (let i = 0; i <= marked.length; i++) {
     if (i == 0) continue; // 排除 -1 的情況
     if (marked[i] === marked[i - 1]) continue; // 直到轉換不同情況
-    if (marked[i] > 1 && marked[i - 1] > 1) continue; // 計算重複區間 ex: 2 or 3 都是重複
+    if (marked[i] > 1 && marked[i - 1] > 1) continue; // 計算重複區間 ex: 2、3... 都是重複
     if (marked[start] > 1) overlap.push([start, i - 1]);
     if (marked[start] === 0) notInclude.push([start, i - 1]);
     start = i;
