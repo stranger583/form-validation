@@ -1,4 +1,4 @@
-import { addComma } from "../utils/number-utils";
+import { addComma } from "../number-utils";
 
 describe('addComma', () => {
     it('should format the number with commas correctly', () => {

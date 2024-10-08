@@ -1,5 +1,5 @@
-import type { AgeRangeType } from "../types";
-import { getNumberIntervals } from "../utils/age-utils";
+import type { AgeRangeType } from "../../types";
+import { getNumberIntervals } from "../age-utils";
 
 describe('getNumberIntervals', () => {
   // 測試給定的輸入和輸出
