@@ -29,3 +29,9 @@ export function getNumberIntervals(intervals: ageGroupType[]) {
 
   return { overlap, notInclude };
 }
+
+export function findOverlapIndices(overlap: ageGroupType[], ageRange: ageGroupType[]) {
+  return ageRange.map(range => {
+    return overlap.some(ol => range[0] <= ol[1] && range[1] >= ol[0]);
+  });
+}

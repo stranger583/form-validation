@@ -5,7 +5,7 @@ type OptionProps = React.ComponentProps<'option'>
 
 function Select({ children, className, ...props }: SelectProps) {
     return (
-        <select {...props} className={cN('size-full p-2 border border-gray-400', className)}>
+        <select {...props} className={cN('size-full p-2 border border-gray-400 outline-none', className)}>
             {children}
         </select>
     )
