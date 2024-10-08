@@ -13,7 +13,14 @@ function App() {
   const [data, setData] = useState<AgeGroupPriceType[]>([defaultItem]);
   const [error, setError] = useState();
 
-  function handleUpdatedList(){}
+  function handleUpdatedList<K extends keyof AgeGroupPriceType>( index:number, val:AgeGroupPriceType[K] ,type:K){
+    const newList = [...data];
+    newList[index] = {
+      ...newList[index],
+      [type]:val
+    }
+    setData(newList)
+  }
 
   function handleAddList(){
     setData(prev=> [...prev,defaultItem]);
@@ -29,7 +36,11 @@ function App() {
   return (
     <form className='w-vw h-dvh p-4 flex flex-col items-center max-w-screen-xl mx-auto'>
       <Button type='submit' variant='validation'>驗證</Button>
-        <AgeGroupPriceList data={data} handleRemoveList={handleRemoveList} />
+        <AgeGroupPriceList 
+          data={data} 
+          handleRemoveList={handleRemoveList}
+          
+        />
       <Button type='button' variant='add' className='self-start' onClick={handleAddList}>+ 新增價格區間</Button>
     </form>
   );
