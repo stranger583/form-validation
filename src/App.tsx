@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from './components/ui/button';
 import AgeGroupPriceList from './components/age-group-price-list';
-import type { AgeGroupPriceType } from './types';
+import type { AgeGroupPriceType, } from './types';
 import { MAX_AGE, MIN_AGE } from './constant';
 import { getNumberIntervals, findOverlapIndices } from './utils/age-utils';
 
@@ -19,7 +19,11 @@ function App() {
 
   const isOverLapList = findOverlapIndices(overlap, ageRange);
 
-  function handleUpdatedList<K extends keyof AgeGroupPriceType>(index: number, val: AgeGroupPriceType[K], type: K) {
+  function handleUpdatedList<K extends keyof AgeGroupPriceType>(
+    index: number,
+    val: AgeGroupPriceType[K],
+    type: K
+  ) {
     const newList = [...data];
     newList[index] = {
       ...newList[index],

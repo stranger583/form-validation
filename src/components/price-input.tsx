@@ -1,13 +1,13 @@
 import { cN } from '../libs/tw-marge'
 import { Input } from './ui/input'
-import type { AgeGroupPriceType } from '../types';
+import type { AgeGroupPriceType, UpdateAgeGroupPriceType } from '../types';
 import { useState } from 'react';
 import { addComma, removeComma, formatPrice } from '../utils/number-utils';
 import { ErrorMsg } from './error-msg';
 interface Props {
   index: number;
   price: AgeGroupPriceType['price'];
-  handleUpdatedList: <K extends keyof AgeGroupPriceType>(index: number, val: AgeGroupPriceType[K], type: K) => void;
+  handleUpdatedList: UpdateAgeGroupPriceType<'price' | 'ageGroup'>
 }
 
 function PriceInput({ price, handleUpdatedList, index }: Props) {

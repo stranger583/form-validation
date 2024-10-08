@@ -1,11 +1,11 @@
 import AgeGroupPrice from "./age-group-price"
-import type { AgeGroupPriceType } from '../types';
+import type { AgeGroupPriceType, UpdateAgeGroupPriceType } from '../types';
 
 interface Props {
     data: AgeGroupPriceType[];
     isOverLapList: boolean[];
     handleRemoveList:(index:number)=>void;
-    handleUpdatedList:<K extends keyof AgeGroupPriceType>( index:number, val:AgeGroupPriceType[K] ,type:K)=>void
+    handleUpdatedList:UpdateAgeGroupPriceType<'price'|'ageGroup'>
 }
 
 export default function AgeGroupPriceList({ data, isOverLapList, handleRemoveList, handleUpdatedList }:Props) {

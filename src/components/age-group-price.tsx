@@ -1,14 +1,14 @@
 import AgeGroupSelect from "./age-group-select"
 import PriceInput from "./price-input"
 import { Button } from "./ui/button"
-import type { AgeGroupPriceType } from '../types';
+import type { AgeGroupPriceType, UpdateAgeGroupPriceType } from '../types';
 
 interface Props {
     value: AgeGroupPriceType;
     index: number;
     isOverLap: boolean;
     handleRemoveList: (index: number) => void;
-    handleUpdatedList: <K extends keyof AgeGroupPriceType>(index: number, val: AgeGroupPriceType[K], type: K) => void
+    handleUpdatedList: UpdateAgeGroupPriceType<'price' | 'ageGroup'>
 
 }
 

@@ -1,14 +1,14 @@
 import { Select, Option } from './ui/select'
 import { AGES } from '../constant'
 import { cN } from '../libs/tw-marge'
-import type { AgeGroupPriceType } from '../types';
+import type { AgeGroupPriceType, UpdateAgeGroupPriceType } from '../types';
 import { ErrorMsg } from './error-msg';
 
 interface Props {
     index: number;
     ageGroup: AgeGroupPriceType['ageGroup'];
     isOverLap: boolean;
-    handleUpdatedList: <K extends keyof AgeGroupPriceType>(index: number, val: AgeGroupPriceType[K], type: K) => void
+    handleUpdatedList: UpdateAgeGroupPriceType<'price' | 'ageGroup'>
 }
 
 function AgeGroupSelect({ ageGroup, handleUpdatedList, index, isOverLap }: Props) {
