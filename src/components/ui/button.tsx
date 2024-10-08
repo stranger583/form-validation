@@ -11,7 +11,7 @@ export function Button({ children, variant = 'default', className, ...props }: B
         default:'text-sm rounded font-bold text-black-500 cursor-pointer',
         validation:'text-white bg-orange-500',
         remove:'text-orange-500 font-bold',
-        add:'text-green-500 py-2 px-0',
+        add:'text-teal-500 py-2 px-0 font-bold',
         disabled:'text-gray-500 py-2 px-0 cursor-not-allowed',
     }
   return (

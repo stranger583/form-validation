@@ -1,16 +1,17 @@
 import React from 'react';
 import { Button } from './components/ui/button';
-import AgeGroupSelect from './components/age-group-select';
-import PriceInput from './components/price-input';
+import AgeGroupPriceList from './components/age-group-price-list';
+
 function App() {
   return (
-    <div className='w-vw h-dvh p-4 flex flex-col items-center max-w-screen-xl mx-auto'>
-      <Button variant='validation'>驗證</Button>
-      <div className='flex gap-4 w-full'>
-      <AgeGroupSelect></AgeGroupSelect>
-      <PriceInput></PriceInput>
+    <form className='w-vw h-dvh p-4 flex flex-col items-center max-w-screen-xl mx-auto'>
+      <Button type='submit' variant='validation'>驗證</Button>
+      <div className='w-full'>
+        <AgeGroupPriceList/>
+        <AgeGroupPriceList/>
       </div>
-    </div>
+      <Button type='button' variant='add' className=' self-start'>+ 新增價格區間</Button>
+    </form>
   );
 }
 
