@@ -3,13 +3,14 @@ import type { AgeGroupPriceType } from '../types';
 
 interface Props {
     data: AgeGroupPriceType[];
+    handleRemoveList:(index:number)=>void;
 }
 
-export default function AgeGroupPriceList({ data }:Props) {
+export default function AgeGroupPriceList({ data, handleRemoveList }:Props) {
   return (
     <div className='w-full'>
         {data.map( (item,i) =>(
-            <AgeGroupPrice key={i} value={item} Seq={i+1}/>
+            <AgeGroupPrice key={i} value={item} index={i} handleRemoveList={handleRemoveList}  />
         ))}
     </div>
     

@@ -5,17 +5,24 @@ import type { AgeGroupPriceType } from '../types';
 
 interface Props {
     value:AgeGroupPriceType;
-    Seq:number;
+    index:number;
+    handleRemoveList:(index:number)=>void;
 }
 
-export default function AgeGroupPrice({value, Seq}:Props) {
+export default function AgeGroupPrice({value, index, handleRemoveList}:Props) {
     const {ageGroup, price} = value;
-    const isFirstItem = Seq !==1;
+    const isFirstItem = index !==0;
     return (
     <div className='border-b border-400 last:border-transparent w-full py-4'>
         <div className='flex justify-between items-center text-lg text-gray-500'>
-                <h3>價格設定 - {Seq}</h3>
-                {isFirstItem && <Button variant="remove">X 移除</Button>}
+                <h3>價格設定 - {index + 1}</h3>
+                {isFirstItem && (
+                    <Button 
+                        variant="remove" 
+                        onClick={()=>handleRemoveList(index)                            
+                    }>
+                            X 移除
+                    </Button>)}
         </div>
         <div className='flex gap-4 w-full'>
                 <AgeGroupSelect ageGroup={ageGroup}/>
@@ -24,3 +31,6 @@ export default function AgeGroupPrice({value, Seq}:Props) {
     </div>
     )
 }
+
+
+
