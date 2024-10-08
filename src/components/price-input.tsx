@@ -3,7 +3,7 @@ import { Input } from './ui/input'
 import type { AgeGroupPriceType } from '../types';
 import { useState } from 'react';
 import { addComma, removeComma, formatPrice } from '../utils/number-utils';
-
+import { ErrorMsg } from './error-msg';
 interface Props {
   index: number;
   price: AgeGroupPriceType['price'];
@@ -12,12 +12,12 @@ interface Props {
 
 function PriceInput({ price, handleUpdatedList, index }: Props) {
   const [priceVal, setPriceVal] = useState(price.toString());
-  const isValueEmpty = priceVal==='';
+  const isValueEmpty = priceVal === '';
 
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = removeComma(e.target.value);
     const formatVal = formatPrice(val);
-    
+
     // 空值
     if (formatVal === '') {
       handleUpdatedList(index, 0, 'price')
@@ -45,7 +45,9 @@ function PriceInput({ price, handleUpdatedList, index }: Props) {
           className={cN(' rounded-r', { 'border-orange-500 text-orange-500': isValueEmpty })}
         />
       </div>
-      <div className={cN('invisible bg-orange-500/20 text-orange-500 rounded w-full p-2',{'visible':isValueEmpty})}>不可為空白</div>
+      <ErrorMsg isError={isValueEmpty}>
+        不可為空白
+      </ErrorMsg>
       <div className='text-gray-400 text-end py-1'>輸入 0 表示免費</div>
     </div>
   )

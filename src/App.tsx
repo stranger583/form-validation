@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from './components/ui/button';
 import AgeGroupPriceList from './components/age-group-price-list';
 import type { AgeGroupPriceType } from './types';
+import type { ageGroupType } from './types';
 import { MAX_AGE, MIN_AGE } from './constant';
 import { getNumberIntervals } from './utils/age-utils';
 
@@ -14,10 +15,18 @@ function App() {
   const [data, setData] = useState<AgeGroupPriceType[]>([defaultItem]);
 
   const ageRange = data.map(item => item.ageGroup)
-  const {notInclude, overlap } = getNumberIntervals(ageRange);
+  const { notInclude, overlap } = getNumberIntervals(ageRange);
   const isFullCoverage = notInclude.length === 0;
 
-
+  const isOverLapList = findOverlapIndices(overlap, ageRange);
+  
+  function findOverlapIndices(overlap: ageGroupType[], ageRange: ageGroupType[]) {
+    return ageRange.map(range => {
+      return overlap.some(ol => {
+        return !(range[1] < ol[0] || range[0] > ol[1]);
+      });
+    });
+  }
 
   function handleUpdatedList<K extends keyof AgeGroupPriceType>(index: number, val: AgeGroupPriceType[K], type: K) {
     const newList = [...data];
@@ -45,6 +54,7 @@ function App() {
         data={data}
         handleRemoveList={handleRemoveList}
         handleUpdatedList={handleUpdatedList}
+        isOverLapList={isOverLapList}
       />
       <Button
         type='button'
