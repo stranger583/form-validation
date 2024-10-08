@@ -1,13 +1,19 @@
 import { Select,Option } from './ui/select'
 import { AGES } from '../constant'
 import { cN } from '../libs/tw-marge'
+import type { AgeGroupPriceType } from '../types';
 
-function AgeGroupSelect() {
+interface Props {
+    ageGroup:AgeGroupPriceType['ageGroup']
+}
+
+function AgeGroupSelect({ageGroup}:Props) {
+    const [startAge, endAge] = ageGroup
   return (
     <div className='w-1/2 text-sm'>
         <h3 className='text-gray-400 py-2'>年齡</h3>
         <div className='flex items-center w-full h-10'>
-        <Select className={cN('rounded-l',{'border-orange-500 text-orange-500':true})} value={AGES[0]}>
+        <Select className={cN('rounded-l',{'border-orange-500 text-orange-500':true})} value={startAge}>
         {AGES.map((age) => (
                 <Option key={age}>
                 {age}
@@ -15,7 +21,7 @@ function AgeGroupSelect() {
             ))}
         </Select>
         <div className='flex items-center p-2 border-y border-gray-400 text-gray-400 bg-gray-50 h-full'>~</div>
-        <Select className={cN('rounded-r',{'border-orange-500 text-orange-500':true})} value={AGES.at(-1)}>
+        <Select className={cN('rounded-r',{'border-orange-500 text-orange-500':true})} value={endAge}>
         {AGES.map((age) => (
                 <Option key={age}>
                 {age}

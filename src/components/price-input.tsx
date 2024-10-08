@@ -1,13 +1,19 @@
 import { cN } from '../libs/tw-marge'
 import { Input } from './ui/input'
+import type { AgeGroupPriceType } from '../types';
 
-function PriceInput() {
+interface Props {
+    price:AgeGroupPriceType['price']
+}
+
+function PriceInput({price}:Props) {
   return (
     <div className='w-1/2 text-sm'>
         <h3 className='text-gray-400 py-2'>入住費用(每人每晚)</h3>
         <div className='flex items-center w-full h-10'>
             <div className='flex items-center text-gray-400 p-2 border border-r-0 rounded-l h-full border-gray-400'>TWD</div>
-            <Input 
+            <Input
+                value={price} 
                 placeholder='請輸入費用' 
                 className={cN(' rounded-r',{'border-orange-500 text-orange-500':true})}
             />
