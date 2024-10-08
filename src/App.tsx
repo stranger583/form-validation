@@ -19,36 +19,22 @@ function App() {
 
   const isOverLapList = findOverlapIndices(overlap, ageRange);
 
-  function handleUpdatedList<K extends keyof AgeGroupPriceType>(
-    index: number,
-    val: AgeGroupPriceType[K],
-    type: K
-  ) {
-    const newList = [...data];
-    newList[index] = {
-      ...newList[index],
-      [type]: val
-    }
-    setData(newList)
+  function handleChange(value:AgeGroupPriceType[]) {
+    setData(value);
+    console.log(value)
   }
-
+  
   function handleAddList() {
     setData(prev => [...prev, defaultItem]);
   }
 
-  function handleRemoveList(index: number) {
-    const newList = [...data];
-    newList.splice(index, 1);
-    setData(newList)
-  }
 
   return (
     <div className='w-vw h-dvh p-4 flex flex-col items-center max-w-screen-xl mx-auto'>
       <h1 className='text-gray-400 text-xl'>表單驗證</h1>
       <AgeGroupPriceList
         data={data}
-        handleRemoveList={handleRemoveList}
-        handleUpdatedList={handleUpdatedList}
+        onChange={handleChange}
         isOverLapList={isOverLapList}
       />
       <Button
