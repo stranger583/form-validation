@@ -1,33 +1,17 @@
 import { useState } from 'react';
-import { Button } from './components/ui/button';
 import AgeGroupPriceList from './components/age-group-price-list';
 import type { AgeGroupPriceType, } from './types';
-import { MAX_AGE, MIN_AGE } from './constant';
-import { getNumberIntervals, findOverlapIndices } from './utils/age-utils';
+import { DEFAULT_ITEM } from './constant';
 
-const defaultItem = {
-  ageGroup: [MIN_AGE, MAX_AGE] as AgeGroupPriceType['ageGroup'],
-  price: 0
-}
+
 
 function App() {
-  const [data, setData] = useState<AgeGroupPriceType[]>([defaultItem]);
-
-  const ageRange = data.map(item => item.ageGroup)
-  const { notInclude, overlap } = getNumberIntervals(ageRange);
-  const isFullCoverage = notInclude.length === 0;
-
-  const isOverLapList = findOverlapIndices(overlap, ageRange);
+  const [data, setData] = useState<AgeGroupPriceType[]>([DEFAULT_ITEM]);
 
   function handleChange(value:AgeGroupPriceType[]) {
     setData(value);
     console.log(value)
   }
-  
-  function handleAddList() {
-    setData(prev => [...prev, defaultItem]);
-  }
-
 
   return (
     <div className='w-vw h-dvh p-4 flex flex-col items-center max-w-screen-xl mx-auto'>
@@ -35,17 +19,7 @@ function App() {
       <AgeGroupPriceList
         data={data}
         onChange={handleChange}
-        isOverLapList={isOverLapList}
       />
-      <Button
-        type='button'
-        variant={isFullCoverage ? 'disabled' : 'add'}
-        className='self-start'
-        onClick={handleAddList}
-        disabled={isFullCoverage}
-      >
-        + 新增價格區間
-      </Button>
     </div>
   );
 }

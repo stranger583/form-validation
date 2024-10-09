@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# Price & Age Group Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+這是一個基於 React、Typescript、tailwind css 的系統，可以管理年齡區間和價格，並具有顯示價格添加千分位逗號做分隔、年齡找重複和未包含區間功能。
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- addComma function: 將數字每個千分位新增逗號分隔
+- getNumberIntervals function: 傳入年齡區間，回傳 0 到 20 歲之間未包含和重疊區間
+- PriceInput Component: 只能輸入數字或空白，顯示時加上千分位逗號，若是空白則出現警告
+- AgeGroupSelect Component: 可選擇起始年齡和結束年齡，範圍限制在 0-20 的年齡區間，起始年齡不能大於結束年齡、結束年齡不能小於起始年齡。若區間重複則出現警告
+- AgeGroupPriceList Component: 支援 onChange props 取得 result 資料，可以新增或移除列表。若年齡區間涵蓋 0-20 則 disabled 新增按鈕
 
-### `npm start`
+### `npm install -g pnpm`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+沒有安裝過 pnpm 可以透過指令安裝
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `pnpm i`
 
-### `npm test`
+下載 node modules
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `pnpm start`
 
-### `npm run build`
+在開發模式啟動本地端專案
+在 [http://localhost:3000](http://localhost:3000) 打開專案
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `pnpm test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+進行 addComma 和 getNumberIntervals 兩支檔案的單元測試
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
