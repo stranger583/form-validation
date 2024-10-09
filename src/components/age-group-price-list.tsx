@@ -1,5 +1,5 @@
 import AgeGroupPrice from "./age-group-price";
-import type { AgeGroupPriceType, UpdateAgeGroupPriceType } from "../types";
+import type { AgeGroupPriceType } from "../types";
 import { Button } from "./ui/button";
 import { getNumberIntervals, findOverlapIndices } from "../utils/age-utils";
 import { DEFAULT_ITEM } from "../constant";
@@ -14,7 +14,7 @@ export default function AgeGroupPriceList({ data, onChange }: Props) {
   const { notInclude, overlap } = getNumberIntervals(ageRange);
   const isFullCoverage = notInclude.length === 0;
   const isOverLapList = findOverlapIndices(overlap, ageRange);
-  
+
   function handleUpdatedList<K extends keyof AgeGroupPriceType>(
     index: number,
     val: AgeGroupPriceType[K],
