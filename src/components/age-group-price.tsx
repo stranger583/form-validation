@@ -9,7 +9,6 @@ interface Props {
     isOverLap: boolean;
     handleRemoveList: (index: number) => void;
     handleUpdatedList: UpdateAgeGroupPriceType<'price' | 'ageGroup'>
-
 }
 
 export default function AgeGroupPrice({ value, index, isOverLap, handleRemoveList, handleUpdatedList }: Props) {

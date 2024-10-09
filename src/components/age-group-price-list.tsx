@@ -13,8 +13,8 @@ export default function AgeGroupPriceList({ data, onChange }: Props) {
   const ageRange = data.map((item) => item.ageGroup);
   const { notInclude, overlap } = getNumberIntervals(ageRange);
   const isFullCoverage = notInclude.length === 0;
-
   const isOverLapList = findOverlapIndices(overlap, ageRange);
+  
   function handleUpdatedList<K extends keyof AgeGroupPriceType>(
     index: number,
     val: AgeGroupPriceType[K],

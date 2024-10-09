@@ -10,6 +10,8 @@
 - AgeGroupSelect Component: 可選擇起始年齡和結束年齡，範圍限制在 0-20 的年齡區間，起始年齡不能大於結束年齡、結束年齡不能小於起始年齡。若區間重複則出現警告
 - AgeGroupPriceList Component: 支援 onChange props 取得 result 資料，可以新增或移除列表。若年齡區間涵蓋 0-20 則 disabled 新增按鈕
 
+## Command
+
 ### `npm install -g pnpm`
 
 沒有安裝過 pnpm 可以透過指令安裝

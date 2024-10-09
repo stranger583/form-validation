@@ -15,7 +15,8 @@ export function formatPrice(value: string) {
   return removeLeadingZeroes(value);
 }
 
-// 移除多餘的 0
-function removeLeadingZeroes(value: string) {
+export function removeLeadingZeroes(value: string) {
+  // 匹配開頭的減號（可選）和一個或多個零，並確保後面是數字
+  // 使用 replace 方法移除開頭的零，負數則保留減號
   return value.replace(/^-?0+(?=\d)/, match => (match.includes('-') ? '-' : ''));;
 }
