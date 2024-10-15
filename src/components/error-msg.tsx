@@ -5,7 +5,7 @@ interface Props {
     children: React.ReactNode;
 }
 
-export function ErrorMsg({ isError, children }: Props) {
+export function ErrorMsg({ isError, children }: Readonly<Props>) {
     return (
         <div>
             <div className={cN('invisible bg-orange-500/20 text-orange-500 rounded w-full p-2', { 'visible': isError })}>

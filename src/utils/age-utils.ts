@@ -20,7 +20,7 @@ export function getNumberIntervals(intervals: ageGroupType[]) {
   let start = 0;
   for (let i = 0; i <= marked.length; i++) {
     if (i == 0) continue; // 排除 -1 的情況
-    if (marked[i] === marked[i - 1]) continue; // 直到轉換不同情況
+    if (marked[i] === marked[i - 1]) continue; // 直到轉換不同情況，0 未包含、1包含、2 以上重複
     if (marked[i] > 1 && marked[i - 1] > 1) continue; // 計算重複區間 ex: 2、3... 都是重複
     if (marked[start] > 1) overlap.push([start, i - 1]);
     if (marked[start] === 0) notInclude.push([start, i - 1]);
@@ -31,6 +31,7 @@ export function getNumberIntervals(intervals: ageGroupType[]) {
 }
 
 export function findOverlapIndices(overlap: ageGroupType[], ageRange: ageGroupType[]) {
+  // 找出重複區間
   return ageRange.map(range => {
     return overlap.some(ol => range[0] <= ol[1] && range[1] >= ol[0]);
   });

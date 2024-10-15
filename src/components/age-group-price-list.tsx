@@ -9,7 +9,7 @@ interface Props {
   onChange: (value: AgeGroupPriceType[]) => void;
 }
 
-export default function AgeGroupPriceList({ data, onChange }: Props) {
+export default function AgeGroupPriceList({ data, onChange }: Readonly<Props>) {
   const ageRange = data.map((item) => item.ageGroup);
   const { notInclude, overlap } = getNumberIntervals(ageRange);
   const isFullCoverage = notInclude.length === 0;

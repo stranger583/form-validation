@@ -11,7 +11,7 @@ interface Props {
     handleUpdatedList: UpdateAgeGroupPriceType<'price' | 'ageGroup'>
 }
 
-function AgeGroupSelect({ ageGroup, handleUpdatedList, index, isOverLap }: Props) {
+function AgeGroupSelect({ ageGroup, handleUpdatedList, index, isOverLap }: Readonly<Props>) {
     const [startAge, endAge] = ageGroup;
 
     function handleChanged(i: number, val: number) {

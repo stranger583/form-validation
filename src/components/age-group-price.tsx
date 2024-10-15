@@ -11,7 +11,7 @@ interface Props {
     handleUpdatedList: UpdateAgeGroupPriceType<'price' | 'ageGroup'>
 }
 
-export default function AgeGroupPrice({ value, index, isOverLap, handleRemoveList, handleUpdatedList }: Props) {
+export default function AgeGroupPrice({ value, index, isOverLap, handleRemoveList, handleUpdatedList }: Readonly<Props>) {
     const { ageGroup, price } = value;
     const isFirstItem = index !== 0;
     return (

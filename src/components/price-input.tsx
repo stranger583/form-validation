@@ -10,7 +10,7 @@ interface Props {
   handleUpdatedList: UpdateAgeGroupPriceType<'price' | 'ageGroup'>
 }
 
-function PriceInput({ price, handleUpdatedList, index }: Props) {
+function PriceInput({ price, handleUpdatedList, index }: Readonly<Props>) {
   const [priceVal, setPriceVal] = useState(price.toString());
   const isValueEmpty = priceVal === '';
 
